@@ -1,0 +1,26 @@
+﻿@model List<Product>
+
+@{
+
+}
+
+<div>
+    @using (Html.BeginForm("Search", "Product", FormMethod.Get))
+    {
+        <input type="text" name="searchInput" />
+        <input type="submit" value="Search" />
+    }
+</div>
+
+@foreach (var product in Model)
+{
+    <div class="col-sm-4 mb-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">@product.Price$</h6>
+                <h6><a href="Product/View/@product.Id">View</a></h6>
+            </div>
+        </div>
+    </div>
+}
